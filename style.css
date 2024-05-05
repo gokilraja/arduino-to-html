@@ -1,0 +1,148 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: aqua;
+    text-align: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.main{
+    background-color: wheat;
+    box-shadow: 5px 5px 10px rgb(140, 141, 135),
+                inset 5px 5px 30px rgb(156, 158, 146);
+    height: 600px;
+    width: 600px;
+    margin-left: 25%;
+    border-radius: 10px;
+}
+.main h1{
+    margin-top: 20px;
+    padding: 15px;
+    color: blue;
+    
+    text-shadow: 15px 10px 10px rgb(146, 136, 136);
+}
+.main .he{
+    margin-top: 60px;
+}
+.main #messageInput{
+    padding: 5px;
+    width: 300px;
+    box-shadow: 5px 5px 5px rgb(140, 141, 135),
+                inset 5px 5px 5px rgb(156, 158, 146);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    margin-right: 50px;
+    margin-bottom: 15px;
+    background-color: aqua;
+    /* border: none; */
+    text-decoration-line: none;
+    text-align: center;
+    outline: none;
+}
+.main .send{
+    margin-top: 10px;
+}
+.main button{
+    height: 50px;
+    width: 20%;
+    border-color: aqua;
+    border-radius: 15px;
+    border-style: inset;
+    font-size: 20px;
+    color: blue;
+    margin-right: 8px;
+} 
+.main .inp{
+    display: flex;
+    background-color: blue;
+}
+.main .con{
+    display: flex;
+    margin-top: 15%;
+}
+.bazar{
+   height: 25%;
+   width:35%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 20px;
+   box-shadow: 5px 5px 10px rgb(140, 141, 135),
+                inset 5px 5px 30px rgb(156, 158, 146);
+   background-color: aqua;
+   padding: 10px;
+   margin: 0 8%;
+   
+}
+
+.bazar button{
+    height: 80px;
+     width: 70%;
+     border-color: aqua;
+     border-radius: 15px;
+     border-style: inset;
+     font-size: 20px;
+     color: blue;
+     margin-right: 8px;
+     margin: 10px;
+     padding: 20px;
+}
+.bazar p{
+    
+   color: blue;
+   font-size: 25px;
+   font-family: serif;
+}
+.motor p{
+    
+    color: blue;
+    font-size: 25px;
+    font-family: serif;
+ }
+.bazar h1{
+    height: 25%;
+    width: 20%;
+    color: blue;
+    /* border-color: 5; */
+}
+
+.motor{
+    height: 25%;
+    width:30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgb(140, 141, 135),
+                inset 5px 5px 30px rgb(156, 158, 146);
+    /* position: absolute; */
+    /* border: none; */
+    background-color: aqua;
+    /* margin:50px; */
+    padding: 10px 20px;
+ }
+ 
+ .motor button{
+     height: 80px;
+     width: 70%;
+     border-color: aqua;
+     border-radius: 15px;
+     border-style: inset;
+     font-size: 20px;
+     color: blue;
+     margin-right: 8px;
+     margin: 10px;
+     padding: 20px;
+     /* position: fixed; */
+ }
+ 
+ .motor h1{
+     height: 25%;
+     width: 20%;
+     color: blue;
+     /* border-color: 5; */
+ }

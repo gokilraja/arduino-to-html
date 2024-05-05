@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project ece</title>
+  <style>
+    *{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-image:linear-gradient(to right,gray, aqua,rgb(28, 94, 194));
+    text-align: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.main{
+    background-color: wheat;
+    box-shadow: 5px 5px 10px rgb(140, 141, 135),
+                inset 5px 5px 30px rgb(156, 158, 146);
+    height: 600px;
+    width: 700px;
+    margin-left: 25%;
+    border-radius: 10px;
+}
+.main h1{
+    margin-top: 20px;
+    padding: 25px;
+    color: blue;
+    letter-spacing: 3px;
+    text-shadow: 15px 10px 10px rgb(146, 136, 136);
+}
+.main .he{
+    margin-top: 60px;
+}
+.main #messageInput{
+    padding: 5px;
+    width: 300px;
+    box-shadow: 5px 5px 5px rgb(140, 141, 135),
+                inset 5px 5px 5px rgb(156, 158, 146);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    margin-right: 50px;
+    margin-bottom: 15px;
+    background-color: aqua;
+    text-decoration-line: none;
+    text-align: center;
+    outline: none;
+}
+.main .send{
+    margin-top: 10px;
+}
+.main button{
+    height: 50px;
+    width: 25%;
+    border-color: aqua;
+    border-radius: 15px;
+    border-style: inset;
+    font-size: 20px;
+    color: blue;
+    margin-right: 8px;
+} 
+.main .inp{
+    display: flex;
+    background-color: blue;
+}
+.main .con{
+    display: flex;
+    margin-top: 15%;
+}
+.bazar{
+   height: 25%;
+   width:40%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 20px;
+   box-shadow: 5px 5px 10px rgb(140, 141, 135),
+                inset 5px 5px 30px rgb(156, 158, 146);
+   background-color: aqua;
+   padding: 10px;
+   margin: 0 5%;
+   
+}
+
+.bazar button{
+    height: 80px;
+     width: 70%;
+     border-color: aqua;
+     border-radius: 15px;
+     border-style: inset;
+     font-size: 20px;
+     color: blue;
+     margin-right: 8px;
+     margin: 10px;
+     padding: 20px;
+}
+.bazar p{
+    
+   color: blue;
+   font-size: 25px;
+   font-family: serif;
+}
+.motor p{
+    
+    color: blue;
+    font-size: 25px;
+    font-family: serif;
+ }
+.bazar h1{
+    height: 25%;
+    width: 20%;
+    color: blue;
+}
+
+.motor{
+    height: 25%;
+    width:40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgb(140, 141, 135),
+                inset 5px 5px 30px rgb(156, 158, 146);
+    background-color: aqua;
+    padding: 10px 10px;
+ }
+ 
+ .motor button{
+     height: 80px;
+     width: 70%;
+     border-color: aqua;
+     border-radius: 15px;
+     border-style: inset;
+     font-size: 20px;
+     color: blue;
+     margin-right: 8px;
+     margin: 10px;
+     padding: 20px;
+ }
+ 
+ .motor h1{
+     height: 25%;
+     width: 20%;
+     color: blue;
+ }
+  </style>
+</head>
+<body>
+ <div class="main">
+    <h1>Serial Communication with HTML to Ardiuno</h1>
+   <div class="con">
+        <div class="bazar">
+        <div class="but">
+        <button onclick="sendMessage2()">LED1 ON</button>
+        <button onclick="sendMessage1()">LED1 OFF</button>
+        </div>
+        <div class="h">
+        <p>status</p>
+       <h1 class="h11" id="h11">OFF</h1>
+       </div>
+    </div>
+    <div class="motor">
+        <div class="but">
+        <button onclick="sendMessage4()">LED2 ON</button>
+        <button onclick="sendMessage3()">LED2 OFF</button>
+        </div>
+        <div class="h">
+            <p>status</p>
+            <h1 class="h12" id="h12">OFF</h1>
+           </div>
+    </div>
+    </div>
+    <h1>Thanks for watching</h1>
+  </div>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+  <script>
+    // Connect to the server via WebSocket
+    const socket = io();
+
+    // Send message to the server
+    function sendMessage() {
+      const messageInput = document.getElementById('messageInput');
+      const message = messageInput.value;
+      socket.emit('clientData', message);
+      messageInput.value = '';
+    }
+
+    function sendMessage1() {
+      const messageInput = document.getElementById('h11');
+      const message = "2";
+      socket.emit('clientData', message);
+      messageInput.innerText = 'OFF';
+    }
+    function sendMessage2() {
+        const messageInput = document.getElementById('h11');
+        const message = "3";
+        socket.emit('clientData', message);
+        messageInput.innerText = 'ON';
+    }
+    function sendMessage3() {
+      const messageInput = document.getElementById('h12');
+      const message = "4";
+      socket.emit('clientData', message);
+      messageInput.innerText = 'OFF';
+    }
+    function sendMessage4() {
+        const messageInput = document.getElementById('h12');
+        const message = "5";
+        socket.emit('clientData', message);
+        messageInput.innerText = 'ON';
+    }
+
+    // Receive data from the server
+    socket.on('arduinoData', function (data) {
+      console.log('Data received from Arduino:', data);
+      // Perform actions with the received data as needed
+    });
+  </script>
+</body>
+</html>
