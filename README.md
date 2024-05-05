@@ -1,4 +1,4 @@
-PIN DIAGRAM:
+PIN CONFIGURATION:
    > TWO LED's connected on pin 3 and 4 in Arduino uno board
 
 
